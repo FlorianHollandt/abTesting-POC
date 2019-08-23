@@ -1,7 +1,7 @@
 
 <img src="https://dicechampionship.s3-eu-west-1.amazonaws.com/banners/abTesting_github_title.png" width="90%">
 
-This project is a proof-of-concept (POC) for an A/B-testing architecture for Alexa Skills. There's a Medium article that the background and architecture of this POC in greater detail, whereas this repository serves more as a blueprint for how to set up the system for yourself.
+This project is a proof-of-concept (POC) for an A/B-testing architecture for Alexa Skills. There's <a href="https://medium.com/voice-games/a-b-testing-your-alexa-skill-766bb241f9e5">a Medium article</a> that describes the background and architecture of this POC in greater detail, whereas this repository serves more as a blueprint for how to set up the system for yourself.
 
 Here's a graphical representation of the POC's architecture:<br/>
 <img src="https://dicechampionship.s3-eu-west-1.amazonaws.com/screenshots/abTesting_architecture.png" width="90%">
