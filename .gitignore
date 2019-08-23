@@ -1,0 +1,7 @@
+.env
+bundle*
+node_modules
+demoApp/platforms/alexaSkill/.ask
+demoApp/platforms/alexaSkill/skill.json
+test*
+superDeploy.sh*

@@ -1,0 +1,47 @@
+{
+	"invocation": "testing demo",
+	"intents": [
+		{
+			"name": "YesIntent",
+			"alexa": {
+				"name": "AMAZON.YesIntent"
+			},
+			"phrases": [
+				"yes",
+				"sure",
+				"absolutely"
+			]
+		},
+		{
+			"name": "NoIntent",
+			"alexa": {
+				"name": "AMAZON.NoIntent"
+			},
+			"phrases": [
+				"no",
+				"not now",
+				"no way"
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					}
+				]
+			}
+		}
+	}
+}

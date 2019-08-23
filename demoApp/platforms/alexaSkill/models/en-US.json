@@ -1,0 +1,38 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "testing demo",
+			"types": [],
+			"intents": [
+				{
+					"name": "AMAZON.YesIntent",
+					"samples": [
+						"yes",
+						"sure",
+						"absolutely"
+					]
+				},
+				{
+					"name": "AMAZON.NoIntent",
+					"samples": [
+						"no",
+						"not now",
+						"no way"
+					]
+				},
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				}
+			]
+		}
+	}
+}
