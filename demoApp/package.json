@@ -7,7 +7,9 @@
     "dotenv": "^8.1.0",
     "is-lambda": "^1.0.1",
     "jovo-framework": "^2.2.15",
-    "jovo-platform-alexa": "^2.0.2"
+    "jovo-platform-alexa": "^2.0.2",
+    "lodash.template": "^4.5.0",
+    "mem": "^5.1.1"
   },
   "devDependencies": {
     "aws-sdk": "^2.515.0",
