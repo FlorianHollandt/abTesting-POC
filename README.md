@@ -18,7 +18,7 @@ This repo covers the following of these components:
 
 # AWS CloudFormation setup
 
-<a href="https://aws.amazon.com/cloudformation/">AWS Cloudformation</a> is an 'infrastructure as code' tool that helps you provision, deploy, update and delete AWS stacks of arbitrary complexity.
+<a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> is an 'infrastructure as code' tool that helps you provision, deploy, update and delete AWS stacks of arbitrary complexity.
 
 This repository contains the template for setting up the POC described here. Please be aware that it can currently only be used in the **us-east-1** region (because that's where the S3 bucket with the pre-packaged Lambda deployment packages is), but I'm working on something more portable. You can still use it to quickly set up and check out the system.
 
