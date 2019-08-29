@@ -16,11 +16,50 @@ This repo covers the following of these components:
 - A setup script for the DynamoDB database that serves as the **result store**, using Node.js
 - For the sake of simplicity, the Skill backend uses no other resources like DynamoDB, S3, Google Spreadsheet or other
 
-# Setup instructions
+# AWS CloudFormation setup
+
+<a href="https://aws.amazon.com/cloudformation/">AWS Cloudformation</a> is an 'infrastructure as code' tool that helps you provision, deploy, update and delete AWS stacks of arbitrary complexity.
+
+This repository contains the template for setting up the POC described here. Please be aware that it can currently only be used in the **us-east-1** region (because that's where the S3 bucket with the pre-packaged Lambda deployment packages is), but I'm working on something more portable. You can still use it to quickly set up and check out the system.
+
+## Deploying the stack
+
+1. In your AWS account, change to the region "North Virginia" (us-east-1) and go to <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1">CloudFormation</a>.
+2. What you'll see here depends on whether you already have CloudFormation stacks. In either case, find the button **Create stack**
+3. In step 1 of the dialog, choose 'Template is ready' and 'Upload a template file', then find the `cloudFormation.yaml`file, select it for upload and click 'Next':<br/>
+  <img src="https://dicechampionship.s3-eu-west-1.amazonaws.com/screenshots/abTesting_cfn_step1.png" width="60%">
+4. In step 2 of the dialog, you must give the stack a name (e.g. `abtesting-poc`), and then you can review the stack's parameters and change them as you see fit. Again, click 'Next' when you're finished
+5. You can leave the settings in step 3 at their defaults, and hit 'Next'
+6. In step 4 you can review your stack's settings. One box you must check before you proceed is the one for 'Capabilities' at the very bottom. It wants you to acknowledge that the stack creates IAM resources - To be precise, the policies and roles required for the system's Lambda functions to work. I took great care that these policies have super tight privileges!<br/>
+  <img src="https://dicechampionship.s3-eu-west-1.amazonaws.com/screenshots/abTesting_cfn_step4.png" width="60%">
+7. After you hit 'Create stack', CloudFormation creates and configures the required resources. You can follow along by clicking the refresh icon in the 'Events' tab. The entire process should take about 2 minutes.
+8. After your stack is in the status 'CREATE_COMPLETE', you can switch to the 'Outputs' tab and copy the value of the `EndpointARN` key
+
+## Updating your Alexa Skill
+1. Navigate into the folder `./demoApp`, and set up your `.env` file by typing<br/>
+   <code>cp .env.example .env</code>
+2. In the file `./demoApp/.env`, replace the dummy value of `LAMBDA_ARN_ROUTER` with the one your copied from the outputs of your CloudFormation console.
+3. Now build and deploy the language model and Skill manifest:<br/>
+   <code>jovo build --stage console --deploy</code><br/>
+
+The result should look like this:<br/>
+<img src="https://dicechampionship.s3-eu-west-1.amazonaws.com/screenshots/abTesting_cfn_deployAlexaSkill.png" width="60%">
+
+3. Now copy the Skill ID and paste it as the value of `SKILL_ID` in your `.env` file for future reference.
+
+**Congrats, you have completely set up this A/B-testing POC!**
+
+You can skip the following manual setup instructions, since you have now deployed this relatively complex system in less than 5 minutes.
+
+If your want to delete this POC system, you can easily do so from the CloudFront console: Just find your stack and hit the 'Delete' button. It will remove all the resources (Lambda, DynamoDB and IAM) that were created for this project.
+
+Now I recommend to jump to the 'Seeing it in action' section.
+
+# Manual setup instructions
 
 We're going through these parts step by step. We start with the result store, then continue with the Alexa Skill frontend and backend, and finish with the router.
 
-This script assumes that you have an AWS account, your AWS CLI and ASK CLI configured and set up, and the Jovo CLI installed. You can almost everything here 
+This script assumes that you have an AWS account, your AWS CLI and ASK CLI configured and set up, and the Jovo CLI installed.
 
 ## Setting up the result store
 
