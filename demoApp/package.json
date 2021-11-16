@@ -12,7 +12,7 @@
     "mem": "^5.1.1"
   },
   "devDependencies": {
-    "aws-sdk": "^2.515.0",
+    "aws-sdk": "^2.814.0",
     "gulp": "^4.0.0",
     "gulp-install": "^1.1.0",
     "gulp-run-command": "0.0.9",
